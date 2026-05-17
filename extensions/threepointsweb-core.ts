@@ -1,6 +1,10 @@
 import type { ExtensionAPI } from "@earendil-works/pi-coding-agent";
 
-export default function threepointswebCore(_pi: ExtensionAPI) {
-  // ThreePointsWeb core extension placeholder.
-  // Runtime behavior will be added only after workflow/design approval.
+export default function threepointswebCore(pi: ExtensionAPI) {
+  pi.registerCommand("threepointsweb-core", {
+    description: "Confirm ThreePointsWeb Pi core is loaded",
+    handler: async (_args, ctx) => {
+      ctx.ui.notify("ThreePointsWeb Pi core loaded.", "info");
+    },
+  });
 }

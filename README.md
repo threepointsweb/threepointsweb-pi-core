@@ -2,7 +2,13 @@
 
 ThreePointsWeb core extension package for [Pi](https://pi.dev/).
 
-Status: initial empty core package. No commands, tools, hooks, skills, prompts, or themes are active yet.
+Status: core package with ThreePointsWeb utility extensions.
+
+Included extensions:
+
+- `threepointsweb-core` — confirms the package is loaded, shows the detected Pi profile, and injects reusable runtime guidance from `agents/AGENTS.md`.
+- `threepointsweb-pi-skills` — MVP tools for searching large skill catalogs on demand and loading exactly one selected skill into context.
+- `threepointsweb-pi-subagents` — subagent orchestration tools (`Agent`, `get_subagent_result`, `steer_subagent`) migrated into this shared core package.
 
 ## Local install while developing
 
@@ -18,12 +24,42 @@ Or add to a profile/settings file:
 }
 ```
 
+## Runtime guidance injection
+
+The `threepointsweb-core` extension appends `agents/AGENTS.md` to the system prompt during `before_agent_start` when this package is loaded. This is where reusable behavior such as skill routing belongs, because the repository root `AGENTS.md` only applies when working inside this repo.
+
+## Subagents extension
+
+The `threepointsweb-pi-subagents` extension now lives in this repo under `extensions/threepointsweb-pi-subagents/`.
+
+It registers the subagent tools:
+
+- `Agent`
+- `get_subagent_result`
+- `steer_subagent`
+
+If the standalone package `threepointsweb-pi-subagents` is still installed in the same Pi profile/project, remove or disable one copy to avoid duplicate tool/command registration.
+
+## Skills on demand MVP
+
+The `threepointsweb-pi-skills` extension exposes two tools:
+
+- `threepointsweb_skill_search` — searches skill metadata by task/intention without loading all skill bodies.
+- `threepointsweb_skill_load` — loads exactly one selected skill as a Pi-compatible `<skill>` block.
+
+Optional catalog paths can be configured with `THREEPOINTSWEB_PI_SKILLS_PATHS` or passed per tool call with `catalogPaths`. This package also ships a local `skills-catalog/`. See `docs/skills-on-demand.md` for the research, usage examples, and current MVP limits.
+
 ## Package structure
 
+- `agents/AGENTS.md` — reusable runtime guidance injected by the core extension.
 - `extensions/threepointsweb-core.ts` — core extension entrypoint.
+- `extensions/threepointsweb-pi-skills.ts` — on-demand skill search/load MVP.
+- `extensions/threepointsweb-pi-subagents/` — migrated subagents extension source.
+- `skills-catalog/` — bundled on-demand skills, including a working PDF table extraction skill.
 - `skills/` — future ThreePointsWeb skills.
 - `prompts/` — future prompt templates.
 - `themes/` — future themes.
+- `docs/skills-on-demand.md` — design and usage notes for the skills MVP.
 - `docs/agent/notes/` — task notes from agent work.
 
 ## Publish/push status

@@ -1,6 +1,6 @@
 {
   "name": "threepointsweb-pi-core",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "ThreePointsWeb core extension package for Pi.",
   "type": "module",
   "keywords": [
@@ -28,6 +28,10 @@
     ]
   },
   "peerDependencies": {
-    "@earendil-works/pi-coding-agent": "*"
+    "@earendil-works/pi-agent-core": "*",
+    "@earendil-works/pi-ai": "*",
+    "@earendil-works/pi-coding-agent": "*",
+    "@earendil-works/pi-tui": "*",
+    "typebox": "*"
   }
 }

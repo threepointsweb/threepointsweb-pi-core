@@ -1,0 +1,15 @@
+# Dependencies/build
+node_modules/
+dist/
+coverage/
+
+# Runtime/local state
+.pi/
+*.log
+.env
+.env.*
+auth.json
+sessions/
+
+# macOS
+.DS_Store

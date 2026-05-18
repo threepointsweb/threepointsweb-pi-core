@@ -600,7 +600,8 @@ Guidelines:
 - Use Plan for Taskdone-ready planning artifacts and approval-gated implementation plans.
 - Use Implement for scoped TDD implementation work.
 - Use Review for evidence-driven verification and code review.
-- Use Remove Slop after implementation and validation to clean touched-scope slop before handoff.
+- Use Code Simplifier after implementation and focused validation when changed code has real complexity, duplication, or readability debt; run it before Remove Slop.
+- Use Remove Slop after implementation, validation, and any Code Simplifier pass to clean touched-scope slop before handoff.
 - Use general-purpose for complex tasks that do not fit the specialized roles.
 - Provide clear, detailed prompts so the agent can work autonomously.
 - Agent results are returned as text — summarize them for the user.

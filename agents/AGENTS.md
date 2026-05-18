@@ -80,7 +80,8 @@ Use subagentes quando economizarem contexto, separarem responsabilidades ou melh
 | Sequência ambígua, arquitetura, aprovação ou manifesto | `Plan` | Produz plano/artefato; não edita código de produto. |
 | Implementação com escopo claro | `Implement` | Braço padrão de execução quando meta, escopo e critérios estão claros. |
 | Validação, auditoria, revisão, diff ou portão de qualidade | `Review` | Somente leitura e baseado em evidência. |
-| Limpeza pós-validação | `Remove Slop` | Limpe apenas o escopo tocado. |
+| Simplificação de código pós-implementação | `Code Simplifier` | Use após implementação + validação focada, antes do `Remove Slop`, somente quando houver complexidade real no código alterado. |
+| Limpeza pós-validação | `Remove Slop` | Rode por último para limpar apenas slop no escopo tocado. |
 | Multi-step sem agente especializado | `general-purpose` | Último recurso, não caminho padrão de implementação. |
 
 Barreira obrigatória: se chamar qualquer subagente, aguarde o resultado antes de fazer trabalho local dependente, editar arquivos, validar ou responder. Não inicie diagnóstico somente leitura e implemente em paralelo. Depois do resultado, sintetize localmente em decisões pequenas e verifique.
@@ -108,6 +109,19 @@ Ao chamar `Implement`, inclua:
 - Comandos de validação: primeiro verificações focadas, depois verificações de tarefa.
 - Expectativa de TDD: para funcionalidade/correção/mudança de comportamento, VERMELHO → VERDE → limpeza; se impraticável, diga por quê.
 - Condição de conclusão: evidências, arquivos tocados, riscos/pendências e marcador requerido.
+
+### Contrato de instrução para Code Simplifier
+
+Ao chamar `Code Simplifier`, inclua:
+
+- Escopo rígido: arquivos tocados ou diretórios específicos; não peça varredura ampla.
+- Evidência de necessidade: complexidade, duplicação, fluxo difícil, nomes ruins, abstração prematura ou legibilidade fraca no código alterado.
+- Validação já executada: informe a validação focada que passou antes da simplificação.
+- Critério de preservação: comportamento, contratos, outputs, side effects, tipos importantes, segurança e acessibilidade não podem mudar.
+- Validação esperada: menor check útil após qualquer edição.
+- Ordem do loop: `Implement` → validação focada → `Code Simplifier` quando necessário → validação novamente → `Remove Slop` → handoff.
+
+Não chame `Code Simplifier` para documentação simples, configuração trivial, mudança de uma linha clara, código já legível, ou quando a validação básica ainda estiver falhando por causa não entendida.
 
 ### Portão de design
 
@@ -171,8 +185,12 @@ Prioridade padrão: repositório/docs locais → busca/shell → web → MCP/rem
 - Sempre inclua validação concreta: reprodução, lint, typecheck, teste, build, verificação de navegador ou alternativa mais forte disponível.
 - Escolha as menores verificações úteis primeiro.
 - Não trate testes passando como prova total se eles não cobrem os requisitos do pedido.
-- Depois de mudanças significativas e validação, limpe o escopo tocado:
-  - se `Remove Slop` estiver disponível, prefira-o como fonte única da limpeza anti-slop;
+- Depois de implementação e validação focada, avalie se o código alterado precisa de simplificação:
+  - se houver complexidade real, duplicação, fluxo difícil ou legibilidade fraca, chame `Code Simplifier` com escopo rígido;
+  - se a mudança for simples, textual, de configuração trivial ou já estiver clara, não chame `Code Simplifier`.
+- Depois de qualquer simplificação, rode a menor validação útil novamente.
+- Depois disso, limpe o escopo tocado:
+  - se `Remove Slop` estiver disponível, prefira-o como fonte única da limpeza anti-slop final;
   - se não, faça equivalente manual e diga isso no resumo.
 - Não crie skill/playbook `remove-slop` duplicado; melhorias nessa capacidade devem ir para o subagente `Remove Slop` ou para a regra que o aciona.
 - Não amplie limpeza para arquivos não relacionados.

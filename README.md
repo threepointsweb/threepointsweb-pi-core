@@ -9,6 +9,7 @@ Included extensions:
 - `threepointsweb-core` — confirms the package is loaded, shows the detected Pi profile, and injects reusable runtime guidance from `agents/AGENTS.md`.
 - `threepointsweb-pi-skills` — MVP tools for searching large skill catalogs on demand and loading exactly one selected skill into context.
 - `threepointsweb-pi-subagents` — subagent orchestration tools (`Agent`, `get_subagent_result`, `steer_subagent`) migrated into this shared core package.
+- `threepointsweb-pi-images` — image generation bridge using Pi's image-generation API with the Codex CLI backend from `scripts/codex-image.mjs`.
 
 ## Local install while developing
 
@@ -40,6 +41,17 @@ It registers the subagent tools:
 
 If the standalone package `threepointsweb-pi-subagents` is still installed in the same Pi profile/project, remove or disable one copy to avoid duplicate tool/command registration.
 
+## Image generation bridge
+
+The `threepointsweb-pi-images` extension registers:
+
+- `threepointsweb_generate_image` — generates an image or rewrites an image prompt through Pi's image-generation API, backed by the Codex CLI script.
+- `/threepointsweb-images` — reports whether the backend script was found.
+
+Backend script discovery checks `THREEPOINTSWEB_CODEX_IMAGE_SCRIPT`, `PI_EXTENSION_PRISEMA_CODEX_IMAGE_SCRIPT`, a packaged `scripts/codex-image.mjs`, and the sibling development path `../pi-extension-prisema/scripts/codex-image.mjs`. By default, the backend script saves generated artifacts under `docs/midia` relative to the active working directory unless `outputPath` is provided.
+
+The tool may invoke Codex and therefore can involve external credentials or cost; use it only after the user has clearly requested image generation.
+
 ## Skills on demand MVP
 
 The `threepointsweb-pi-skills` extension exposes two tools:
@@ -55,6 +67,7 @@ Optional catalog paths can be configured with `THREEPOINTSWEB_PI_SKILLS_PATHS` o
 - `extensions/threepointsweb-core.ts` — core extension entrypoint.
 - `extensions/threepointsweb-pi-skills.ts` — on-demand skill search/load MVP.
 - `extensions/threepointsweb-pi-subagents/` — migrated subagents extension source.
+- `extensions/threepointsweb-pi-images.ts` — Pi image-generation API bridge to the Codex CLI backend.
 - `skills-catalog/` — bundled on-demand skills, including a working PDF table extraction skill.
 - `skills/` — future ThreePointsWeb skills.
 - `prompts/` — future prompt templates.

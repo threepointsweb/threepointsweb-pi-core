@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased
+
+### Added
+
+- Add `threepointsweb-pi-images` extension with `threepointsweb_generate_image` tool and `/threepointsweb-images` status command.
+- Register a ThreePointsWeb Codex-backed provider through Pi's image-generation API, reusing the Prisema `scripts/codex-image.mjs` backend when available.
+
 ## 0.2.0 — 2026-05-17
 
 ### Added

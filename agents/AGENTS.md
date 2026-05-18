@@ -221,6 +221,8 @@ Regras:
 - Antes de criar skill/playbook, verifique se a capacidade já existe como subagente default; se existir, melhore o subagente ou a regra que o aciona em vez de criar duplicação.
 - Prefira atualizar skill/playbook existente a criar sobreposição.
 - Guarde skills/playbooks sob demanda em `skills-catalog/<skill-name>/SKILL.md`, salvo convenção local diferente.
+- Nomeie skills do catálogo em inglês, com nomes descritivos e orientados por domínio/ação; prefira `<domain>-<action>-<object>` ou nome curto equivalente quando já for claro.
+- Mantenha o diretório da skill e o frontmatter `name` iguais.
 - Use `skills/<skill-name>/SKILL.md` apenas para skills pequenas, essenciais e estáveis que devem ser registradas como recurso Pi do pacote.
 - Skills/playbooks novos ou atualizados devem incluir: frontmatter com `name` e `description`, gatilho de uso, quando não usar, fluxo, comandos/ferramentas, salvaguardas, validação, riscos/reversão e caminhos relacionados.
 - Não codifique segredos, dados privados, status de tarefa única, dumps crus ou palpites não verificados em artefatos reutilizáveis.

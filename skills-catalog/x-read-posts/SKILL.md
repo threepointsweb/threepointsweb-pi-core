@@ -1,9 +1,9 @@
 ---
-name: x-link-reader
-description: Read public X/Twitter posts and profiles from x.com or twitter.com URLs using the FxTwitter API. Use when the user shares an X/Twitter link and asks what it says, wants a summary, or direct fetching returns anti-bot/empty content. Read-only; no API key required.
+name: x-read-posts
+description: Read public X/Twitter posts and profiles from x.com or twitter.com URLs using the FxTwitter API. Use when the user shares an X/Twitter post/profile link and asks what it says, wants a summary, or direct fetching returns anti-bot/empty content. Read-only; no API key required.
 ---
 
-# X/Twitter Link Reader
+# X/Twitter Read Posts
 
 Use this skill to read public X/Twitter posts or profiles when direct fetching from `x.com` or `twitter.com` is blocked, empty, or likely to return an anti-bot page.
 

@@ -27,8 +27,8 @@ Research how Pi loads skills and implement an MVP extension/tool flow for `three
   - `npx --yes --package typescript --package @types/node tsc --noEmit --target ES2022 --module NodeNext --moduleResolution NodeNext --strict --skipLibCheck extensions/threepointsweb-pi-skills.ts extensions/threepointsweb-core.ts`
 - Functional fixture check with `tsx` and a fake Pi API:
   - Registered `threepointsweb_skill_search` and `threepointsweb_skill_load`.
-  - Search for `extract tables from PDF` found `pdf-processing` in `skills-catalog`.
-  - Load by name returned a `<skill name="pdf-processing">` block.
+  - Search for `extract tables from PDF` finds the PDF table extraction skill in `skills-catalog`.
+  - The current catalog name is `pdf-extract-tables`.
 - Package check:
   - `npm pack --dry-run` completed and produced `threepointsweb-pi-core-0.1.0.tgz`.
   - `npm pack --dry-run --json` confirmed the new extension, docs, and bundled skills are included.

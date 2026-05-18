@@ -20,7 +20,7 @@ import venv
 from pathlib import Path
 from typing import Any, Iterable
 
-DEFAULT_VENV = Path.home() / ".cache" / "threepointsweb-pi-skills" / "pdf-processing" / ".venv"
+DEFAULT_VENV = Path.home() / ".cache" / "threepointsweb-pi-skills" / "pdf-extract-tables" / ".venv"
 
 
 def venv_python(venv_dir: Path) -> Path:

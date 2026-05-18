@@ -1,9 +1,9 @@
 ---
-name: pdf-processing
+name: pdf-extract-tables
 description: Extract tables from PDF files into Markdown, CSV, or JSON using the bundled pdfplumber helper. Use when the task asks to extract, convert, or summarize tabular data from PDF documents.
 ---
 
-# PDF Processing
+# PDF Extract Tables
 
 Use this skill when a user asks to extract tables from a PDF or convert PDF tabular content into Markdown/CSV/JSON.
 
@@ -15,7 +15,7 @@ This skill includes a helper script:
 scripts/extract_pdf_tables.py
 ```
 
-The script uses `pdfplumber`. If the runtime does not already have `pdfplumber`, run the script with `--install-deps`; it creates a cached virtualenv under `~/.cache/threepointsweb-pi-skills/pdf-processing/.venv` and re-runs itself.
+The script uses `pdfplumber`. If the runtime does not already have `pdfplumber`, run the script with `--install-deps`; it creates a cached virtualenv under `~/.cache/threepointsweb-pi-skills/pdf-extract-tables/.venv` and re-runs itself.
 
 ## Workflow
 

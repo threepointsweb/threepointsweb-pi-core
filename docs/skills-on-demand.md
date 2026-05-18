@@ -86,7 +86,7 @@ threepointsweb_skill_search({
 
 ```json
 threepointsweb_skill_load({
-  "name": "pdf-processing",
+  "name": "pdf-extract-tables",
   "catalogPaths": ["skills-catalog"]
 })
 ```

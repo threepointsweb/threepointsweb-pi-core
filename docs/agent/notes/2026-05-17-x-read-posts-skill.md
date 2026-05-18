@@ -1,19 +1,20 @@
-# 2026-05-17 — skill x-link-reader
+# 2026-05-17 — skill x-read-posts
 
 ## Objetivo
 
-Migrar a skill `x-link-reader` do pacote de referência para o catálogo sob demanda do ThreePointsWeb, permitindo leitura de posts/perfis públicos do X/Twitter via FxTwitter.
+Migrar a skill de leitura de links do X/Twitter do pacote de referência para o catálogo sob demanda do ThreePointsWeb, permitindo leitura de posts/perfis públicos via FxTwitter.
 
 ## Contexto
 
-- A referência foi `../pi-extension-prisema/skills/x-link-reader/SKILL.md`.
+- A referência foi a skill de leitura de X/Twitter do pacote anterior.
 - A skill é genérica, somente leitura e não depende de credenciais.
 - Ela resolve o caso em que `x.com`/`twitter.com` bloqueia fetch direto com páginas anti-bot ou conteúdo vazio.
+- A skill foi renomeada para `x-read-posts` para seguir o padrão de nomes em inglês orientados por domínio/ação.
 
 ## Decisões
 
-- Criada `skills-catalog/x-link-reader/SKILL.md`.
-- Mantido o nome `x-link-reader`, pois é genérico e descritivo.
+- Criada a skill de catálogo `skills-catalog/x-read-posts/SKILL.md`.
+- O frontmatter usa `name: x-read-posts`.
 - Adaptada a redação para o catálogo ThreePointsWeb, sem branding específico.
 - Mantido o uso de `api.fxtwitter.com` como caminho principal.
 - Adicionados critérios de quando usar, quando não usar, formato de saída e guardrails.
@@ -21,14 +22,14 @@ Migrar a skill `x-link-reader` do pacote de referência para o catálogo sob dem
 
 ## Arquivos alterados
 
-- `skills-catalog/x-link-reader/SKILL.md`
-- `docs/agent/notes/2026-05-17-x-link-reader-skill.md`
+- `skills-catalog/x-read-posts/SKILL.md`
+- `docs/agent/notes/2026-05-17-x-read-posts-skill.md`
 
 ## Validação
 
 - Frontmatter `name` e `description` conferidos.
 - Ausência de branding específico da referência confirmada na skill.
-- `npm pack --dry-run --json` confirmou inclusão de `skills-catalog/x-link-reader/SKILL.md`.
+- `npm pack --dry-run --json` confirmou inclusão da skill no pacote.
 - Ausência de skill duplicada pré-existente no catálogo confirmada.
 
 ## Riscos
@@ -39,4 +40,4 @@ Migrar a skill `x-link-reader` do pacote de referência para o catálogo sob dem
 
 ## Reversão
 
-- Remover `skills-catalog/x-link-reader/SKILL.md` e esta nota.
+- Remover `skills-catalog/x-read-posts/SKILL.md` e esta nota.

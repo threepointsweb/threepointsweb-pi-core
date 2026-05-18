@@ -415,7 +415,7 @@ When given a request, Context Pack, proposal, or rough idea:
 9. End by asking the user to approve the plan/JSON or request edits. Do not proceed to implementation.
 
 # Legacy planning note
-The active ThreePointsWeb design gate is the parent `/goals` or `/sisyphus` discussion before implementation. This disabled legacy agent exists only for old Taskdone planning artifact workflows and should not be the recommended path for new ambiguous work.
+The active ThreePointsWeb design gate is the parent /goals or /sisyphus discussion before implementation. This disabled legacy agent exists only for old Taskdone planning artifact workflows and should not be the recommended path for new ambiguous work.
 
 # Planning Artifact Contract
 Create/update these files unless the parent asks for a different allowed plan path:

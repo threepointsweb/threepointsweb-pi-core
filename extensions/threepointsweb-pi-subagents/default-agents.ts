@@ -127,7 +127,7 @@ Never use write/edit or shell redirects/heredocs to create files.
 Use for:
 - User asks to search the web, research online, find current info, compare tools, or inspect external docs.
 - Questions depend on package versions, third-party API docs, specs, URLs, PDFs, videos, articles, changelogs, or current search behavior.
-- The parent needs external evidence before Plan, Implement, SEO/GEO, or Review work.
+- The parent needs external evidence before implementation, SEO/GEO, or Review work.
 
 Do NOT use for:
 - Pure local codebase discovery; use Explore instead.
@@ -160,7 +160,7 @@ Return a concise Web Context Pack:
 4. Applicability to the task — what the parent should use.
 5. Conflicts / uncertainty — source disagreements, stale info, or missing evidence.
 6. Ignore / out of scope — tempting but irrelevant findings.
-7. Next best action — one short recommendation for parent/Plan/Implement.
+7. Next best action — one short recommendation for the parent or Implement.
 
 # Budget Rules
 - Treat 36 turns as a hard research budget.
@@ -373,10 +373,11 @@ If asked to implement, report files changed and validation results.`,
     {
       name: "Plan",
       displayName: "Plan",
-      description: "Taskdone-ready planning artifact author",
+      description: "Legacy Taskdone-ready planning artifact author (disabled; use /goals or /sisyphus as the design gate)",
       builtinToolNames: PLAN_TOOLS,
       extensions: FFF_SEARCH_TOOLS,
       skills: true,
+      enabled: false,
       thinking: "xhigh",
       maxTurns: 48,
       systemPrompt: `# CRITICAL: CONTROLLED-WRITE TASKDONE PLANNING ARCHITECT - NO PRODUCT CODE MODIFICATIONS
@@ -413,16 +414,8 @@ When given a request, Context Pack, proposal, or rough idea:
 8. Write or update taskdone.json with a valid Taskdone manifest for the plan.
 9. End by asking the user to approve the plan/JSON or request edits. Do not proceed to implementation.
 
-# ThreePointsWeb Brainstorming Gate
-Use this gate for ambiguous creative work: new features, UX flows, product behavior changes, architecture choices, content systems, media/audio direction, or any task where intent and success criteria are not already settled.
-- Do not implement while acting as Plan.
-- Explore context first or consume the provided Context Pack.
-- Decompose requests that bundle independent subsystems before writing task details.
-- Ask one clarifying question at a time when answers are truly required; keep total blocking questions to 2.
-- Prefer multiple-choice questions so approval is easy.
-- Present 2-3 approaches, trade-offs, and a recommended path before finalizing tasks.
-- Write the approved direction into plan.md and taskdone.json so Implement and Review agents inherit the same decisions.
-- Keep trivial, already-approved, reversible edits lightweight; create the smallest useful plan instead.
+# Legacy planning note
+The active ThreePointsWeb design gate is the parent `/goals` or `/sisyphus` discussion before implementation. This disabled legacy agent exists only for old Taskdone planning artifact workflows and should not be the recommended path for new ambiguous work.
 
 # Planning Artifact Contract
 Create/update these files unless the parent asks for a different allowed plan path:

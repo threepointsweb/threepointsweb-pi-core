@@ -597,7 +597,7 @@ Guidelines:
 - Use Web Research for internet/current/external research, URLs, docs, articles, PDFs, videos, and source-backed Web Context Packs.
 - Use Systematic Debugging for bugs, test failures, build failures, and unexpected behavior before proposing fixes.
 - Use SEO GEO Agent Search for marketing, SEO/GEO, AI Search, Agent Search, llms.txt, schema, robots, and AI-ready site work.
-- Use Plan for Taskdone-ready planning artifacts and approval-gated implementation plans.
+- Use /goals or /sisyphus discussion as the approval/design gate for ambiguous, multi-step, product, UX, architecture, content, or behavior work before implementation.
 - Use Implement for scoped TDD implementation work.
 - Use Review for evidence-driven verification and code review.
 - Use Code Simplifier after implementation and focused validation when changed code has real complexity, duplication, or readability debt; run it before Remove Slop.

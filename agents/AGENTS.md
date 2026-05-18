@@ -35,10 +35,19 @@ Antes de criar, mover ou salvar arquivos, avalie se o pedido combina com o proje
 ## Roteamento de objetivos e Sisyphus
 
 - Quando a solicitação tiver mais de uma ação concreta, envolver múltiplos arquivos, exigir validação/testes, ou parecer complexa/arriscada, pare antes de executar e ofereça organizar o trabalho como `/goals` ou `/sisyphus`.
+- Use a discussão de `/goals` ou `/sisyphus` como portão de design para pedidos complexos, ambíguos, criativos, de arquitetura, UX, conteúdo, mídia, comportamento ou múltiplas frentes.
+- Durante esse portão, não implemente. Faça apenas pesquisa leve/somente leitura quando ela ajudar a definir melhor o contrato.
+- Antes de propor o draft, quando houver incerteza real:
+  - classifique o escopo e separe frentes independentes;
+  - faça no máximo 1–2 perguntas bloqueantes, preferindo múltipla escolha;
+  - ofereça 2–3 abordagens com compromissos de escopo, risco, velocidade, manutenção e validação quando houver escolha relevante;
+  - recomende uma opção e explicite suposições, validação e reversão;
+  - transforme a direção escolhida em objetivo, critérios de sucesso, limites, restrições e regra de bloqueio.
 - Use `/goals` quando o objetivo final for claro e a ordem dos passos puder ser flexível.
 - Use `/sisyphus` quando o usuário trouxer uma sequência numerada/checklist rígido, ou quando a ordem e o critério de conclusão de cada passo precisarem ser preservados.
 - Se o usuário aceitar, colete apenas o mínimo faltante e proponha o draft para confirmação; não crie goal/sisyphus sem confirmação explícita.
 - Para tarefas simples de uma ação, siga direto, salvo se o usuário pedir `/goals` ou `/sisyphus`.
+- Não crie skill/playbook `brainstorming` ou `design-gate` duplicado para este fluxo; evolua este roteamento quando o comportamento precisar melhorar.
 
 ## Saída padrão
 
@@ -77,7 +86,6 @@ Use subagentes quando economizarem contexto, separarem responsabilidades ou melh
 | Pesquisa externa/atual | `Web Research` | Peça pacote com fontes e links. |
 | Bug, falha, regressão ou comportamento inesperado | `Systematic Debugging` | Encontre causa raiz antes de corrigir; evite chute fix-first. |
 | Marketing, SEO/GEO, AI Search, llms.txt, schema, robots | `SEO GEO Agent Search` | Use para descoberta pública/AI-ready. |
-| Sequência ambígua, arquitetura, aprovação ou manifesto | `Plan` | Produz plano/artefato; não edita código de produto. |
 | Implementação com escopo claro | `Implement` | Braço padrão de execução quando meta, escopo e critérios estão claros. |
 | Validação, auditoria, revisão, diff ou portão de qualidade | `Review` | Somente leitura e baseado em evidência. |
 | Simplificação de código pós-implementação | `Code Simplifier` | Use após implementação + validação focada, antes do `Remove Slop`, somente quando houver complexidade real no código alterado. |
@@ -125,13 +133,9 @@ Não chame `Code Simplifier` para documentação simples, configuração trivial
 
 ### Portão de design
 
-Para trabalho criativo, produto, UX, arquitetura, conteúdo, mídia ou comportamento ambíguo:
+Para trabalho criativo, produto, UX, arquitetura, conteúdo, mídia ou comportamento ambíguo, use o portão de `/goals` ou `/sisyphus` descrito acima. O objetivo é sair da conversa com contrato aprovado antes de implementar, não criar um plano paralelo.
 
-- Monte contexto local suficiente antes de propor solução.
-- Faça até 2 perguntas bloqueantes quando necessário.
-- Ofereça 2–3 opções com recomendação quando houver compromisso real.
-- Peça aprovação antes de implementar mudanças grandes, subjetivas, públicas ou difíceis de reverter.
-- Pule cerimônia pesada para edições triviais, aprovadas e reversíveis; declare a suposição e prossiga.
+Pule cerimônia pesada para edições triviais, aprovadas e reversíveis; declare a suposição e prossiga.
 
 ## Roteamento de capacidades + salvaguardas
 

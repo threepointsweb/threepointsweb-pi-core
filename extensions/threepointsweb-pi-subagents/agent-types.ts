@@ -81,7 +81,7 @@ export function getAllTypes(): string[] {
 /** Get names of default agents currently in the registry. */
 export function getDefaultAgentNames(): string[] {
   return [...agents.entries()]
-    .filter(([_, config]) => config.isDefault === true)
+    .filter(([_, config]) => config.isDefault === true && config.enabled !== false)
     .map(([name]) => name);
 }
 

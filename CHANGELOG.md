@@ -5,6 +5,7 @@
 ### Added
 
 - Add `threepointsweb-pi-images` extension with `threepointsweb_generate_image` tool and `/threepointsweb-images` status command.
+- Add packaged `scripts/codex-image.mjs` backend so Git-installed profiles can generate images without external `scriptPath` configuration.
 - Register a ThreePointsWeb Codex-backed provider through Pi's image-generation API, reusing the Prisema `scripts/codex-image.mjs` backend when available.
 
 ## 0.2.0 — 2026-05-17

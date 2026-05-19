@@ -48,7 +48,7 @@ The `threepointsweb-pi-images` extension registers:
 - `threepointsweb_generate_image` — generates an image or rewrites an image prompt through Pi's image-generation API, backed by the Codex CLI script.
 - `/threepointsweb-images` — reports whether the backend script was found.
 
-Backend script discovery checks `THREEPOINTSWEB_CODEX_IMAGE_SCRIPT`, `PI_EXTENSION_PRISEMA_CODEX_IMAGE_SCRIPT`, a packaged `scripts/codex-image.mjs`, and the sibling development path `../pi-extension-prisema/scripts/codex-image.mjs`. By default, the backend script saves generated artifacts under `docs/midia` relative to the active working directory unless `outputPath` is provided.
+Backend script discovery checks `THREEPOINTSWEB_CODEX_IMAGE_SCRIPT`, `PI_EXTENSION_PRISEMA_CODEX_IMAGE_SCRIPT`, the packaged `scripts/codex-image.mjs`, and the sibling development path `../pi-extension-prisema/scripts/codex-image.mjs`. By default, the backend script saves generated artifacts under `docs/midia` relative to the active working directory unless `outputPath` is provided.
 
 The tool may invoke Codex and therefore can involve external credentials or cost; use it only after the user has clearly requested image generation.
 
